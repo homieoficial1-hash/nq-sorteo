@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NQ PROJECT · Ruleta</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas class="fx" id="fx"></canvas>
+
+  <!-- Acceso -->
+  <section id="gate" class="gate layer hidden">
+    <img class="logo" src="assets/logo.png" alt="NQ PROJECT" onerror="this.remove(); document.getElementById('wmGate').classList.remove('hidden')">
+    <div id="wmGate" class="wordmark hidden">NQ PROJECT</div>
+    <div class="box">
+      <h2>Panel del sorteo</h2>
+      <p id="gateMsg">Solo el administrador puede entrar.</p>
+      <button id="loginBtn" class="btn glow">Entrar con Google</button>
+      <button id="logoutGate" class="btn outline hidden" style="margin-top:10px">Cerrar sesión</button>
+    </div>
+  </section>
+
+  <!-- Panel -->
+  <main id="app" class="admin layer hidden">
+    <div class="topbar">
+      <div class="left">
+        <img class="logo" src="assets/logo.png" alt="NQ PROJECT" onerror="this.remove(); document.getElementById('wm').classList.remove('hidden')">
+        <div id="wm" class="wordmark hidden">NQ PROJECT</div>
+        <span id="demoBadge" class="demo-badge hidden">Demo</span>
+      </div>
+      <div class="right">
+        <label class="toggle"><input id="streamMode" type="checkbox" checked> Modo stream</label>
+        <button id="logoutBtn" class="ghost">Salir</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="stage">
+        <div class="stage-head">
+          <h2>Sorteo · <span id="prizeLabel">Cuenta de fondeo</span></h2>
+          <div class="counter"><b id="count">0</b>registrados &nbsp;·&nbsp; <b id="eligible">0</b>en la ruleta</div>
+        </div>
+        <div class="wheel-box">
+          <div class="pointer"></div>
+          <canvas id="wheel"></canvas>
+        </div>
+        <div id="ticker" class="ticker">&nbsp;</div>
+        <button id="spinBtn" class="btn glow spin-btn">Girar ruleta</button>
+        <div id="hint" class="hint"></div>
+      </section>
+
+      <aside class="side">
+        <div class="panel">
+          <h3>Registros <small id="regState">—</small></h3>
+          <div class="reg-toggle">
+            <span id="regText">Cargando…</span>
+            <button id="regBtn" class="btn">Abrir registros</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Ganadores <small id="winCount">0 / 5</small></h3>
+          <ul id="winners" class="winners"></ul>
+          <div class="row-btns">
+            <button id="resetBtn" class="ghost danger">Reiniciar ganadores</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Participantes <small id="pCount">0</small></h3>
+          <input id="search" class="search" placeholder="Buscar por nombre o correo">
+          <div id="plist" class="plist"></div>
+          <div class="row-btns">
+            <button id="csvBtn" class="ghost">Descargar lista (CSV)</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="box">
+      <div class="tag" id="mTag">Ganador #1</div>
+      <h2 id="mName">—</h2>
+      <p id="mSub">—</p>
+      <button id="mClose" class="btn">Continuar</button>
+    </div>
+  </div>
+
+  <script src="fx.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
