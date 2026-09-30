@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NQ PROJECT · Sorteo en vivo</title>
+  <meta name="description" content="Regístrate para participar en el sorteo de cuentas de fondeo de NQ PROJECT en el stream de YouTube.">
+  <meta property="og:title" content="NQ PROJECT · Sorteo de cuentas de fondeo">
+  <meta property="og:description" content="Regístrate y participa en vivo.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="reg-wrap">
+    <header>
+      <div class="brand">
+        <img src="assets/logo.png" alt="NQ PROJECT" onerror="this.remove(); document.getElementById('wm').classList.remove('hidden')">
+        <div id="wm" class="wordmark hidden"><b>NQ</b> PROJECT</div>
+      </div>
+      <span id="demoBadge" class="demo-badge hidden">Modo demo</span>
+    </header>
+
+    <section class="hero">
+      <div id="status" class="status"><i></i><span>Conectando…</span></div>
+      <h1>Sorteo de <span id="nPremios">5</span> cuentas de fondeo</h1>
+      <p>Regístrate mientras el stream está en vivo. Al cerrar los registros giramos la ruleta y anunciamos a los ganadores en directo. Te contactaremos por WhatsApp o correo.</p>
+    </section>
+
+    <section class="card">
+      <form id="form" novalidate autocomplete="on">
+        <div class="field">
+          <label for="name">Nombre completo</label>
+          <input id="name" name="name" type="text" maxlength="60" autocomplete="name" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" maxlength="120" autocomplete="email" inputmode="email" placeholder="tucorreo@gmail.com" required>
+        </div>
+        <div class="field">
+          <label for="phone">WhatsApp (con indicativo del país)</label>
+          <input id="phone" name="phone" type="tel" maxlength="22" autocomplete="tel" inputmode="tel" placeholder="+57 300 123 4567" required>
+          <small>Ej: +57 Colombia · +52 México · +1 EE. UU.</small>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="website">No llenar</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <label class="check">
+          <input id="consent" type="checkbox" required>
+          <span>Autorizo a NQ PROJECT a usar mis datos únicamente para este sorteo y para contactarme si resulto ganador.</span>
+        </label>
+        <button id="submit" class="btn" type="submit">Quiero participar</button>
+        <div id="msg" class="msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div id="done" class="done hidden">
+        <div class="big">✅</div>
+        <h2>¡Ya estás participando!</h2>
+        <p>Quédate en el stream: vamos a girar la ruleta en vivo.<br>Solo se permite un registro por correo.</p>
+      </div>
+
+      <div id="closed" class="done hidden">
+        <div class="big">⏳</div>
+        <h2>Registros cerrados</h2>
+        <p>En este momento no se aceptan nuevos registros. Sigue el stream para ver a los ganadores.</p>
+      </div>
+    </section>
+
+    <p class="foot">Un registro por persona. Los datos no se muestran públicamente.</p>
+  </main>
+
+  <script type="module" src="register.js"></script>
+</body>
+</html>
